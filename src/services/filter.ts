@@ -31,26 +31,28 @@ const filterUnits = ({
     const hour = new Date().getHours()
 
     if (!item.schedules) return false
-    for (let i = 0; i < item.schedules.length; i++) {
-      const schedule_hour = item.schedules[i].hour
-      const schedule_weekday = item.schedules[i].weekdays
 
-      if (todays_weekday === schedule_weekday) {
-        if (schedule_hour !== 'Fechada') {
-          const [open_hour, close_hour] = schedule_hour.split(' às ')
-          const open_hour_int = parseInt(open_hour.replace(/h.*/, ''), 10)
-          const close_hour_int = parseInt(close_hour.replace('/h.*/', ''), 10)
+    const schedules = item.schedules.find((schedule) => schedule)
+    if (!schedules) return false
 
-          if (start_hour_filter >= open_hour_int && hour <= close_hour_int) {
-            return true
-          } else {
-            item.opened = false
-            return showOfClosedUnits
-          }
-        } else if (schedule_hour === 'Fechada') {
+    const schedule_hour = schedules.hour
+    const schedule_weekday = schedules.weekdays
+
+    if (todays_weekday === schedule_weekday) {
+      if (schedule_hour !== 'Fechada') {
+        const [open_hour, close_hour] = schedule_hour.split(' às ')
+        const open_hour_int = parseInt(open_hour.replace(/h.*/, ''), 10)
+        const close_hour_int = parseInt(close_hour.replace('/h.*/', ''), 10)
+
+        if (start_hour_filter >= open_hour_int && hour <= close_hour_int) {
+          return true
+        } else {
           item.opened = false
           return showOfClosedUnits
         }
+      } else if (schedule_hour === 'Fechada') {
+        item.opened = false
+        return showOfClosedUnits
       }
     }
     return false
