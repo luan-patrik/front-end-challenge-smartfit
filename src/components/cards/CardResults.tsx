@@ -6,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from '../ui/card'
+import { Separator } from '../ui/separator'
 import CardItems from './CardItems'
 
 const CardResults = () => {
@@ -28,7 +29,7 @@ const CardResults = () => {
               dangerouslySetInnerHTML={{ __html: item.content }}
             ></CardDescription>
           </CardHeader>
-          <hr className="my-4" />
+          <Separator className='my-4'/>
           <CardContent className="flex flex-col gap-4">
             <div className="flex justify-center gap-4">
               {item.mask === 'required' ? (
