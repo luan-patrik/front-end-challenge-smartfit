@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="relative bottom-0 flex flex-col items-center justify-center gap-2 bg-neutral-600 py-10">
       <Image
         src={'/assets/logo.svg'}
-        alt={'Logo SmartFit'}
+        alt={'Logo Smart Fit'}
         width={100}
         height={100}
       />
