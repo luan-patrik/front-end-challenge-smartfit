@@ -44,9 +44,11 @@ const filterUnits = ({
           if (start_hour_filter >= open_hour_int && hour <= close_hour_int) {
             return true
           } else {
+            item.opened = false
             return showOfClosedUnits
           }
         } else if (schedule_hour === 'Fechada') {
+          item.opened = false
           return showOfClosedUnits
         }
       }
