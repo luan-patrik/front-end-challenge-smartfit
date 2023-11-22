@@ -7,7 +7,8 @@ const Header = () => {
         src={'/assets/logo.svg'}
         alt={'Logo Smart Fit'}
         width={150}
-        height={100}
+        height={60}
+        priority
       />
     </header>
   )

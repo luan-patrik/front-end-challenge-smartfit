@@ -7,7 +7,8 @@ const Footer = () => {
         src={'/assets/logo.svg'}
         alt={'Logo Smart Fit'}
         width={100}
-        height={100}
+        height={40}
+        priority
       />
       <p className="text-sm text-background">
         Todos os direitos reservados - 2023
