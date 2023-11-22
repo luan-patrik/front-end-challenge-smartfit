@@ -29,7 +29,7 @@ const filterUnits = ({
   const filteredResults = results.filter((item) => {
     const todays_weekday = transform_weekday(new Date().getDay())
     const hour = new Date().getHours()
-
+    
     if (!item.schedules) return false
 
     const schedules = item.schedules.find((schedule) => schedule)
@@ -44,7 +44,12 @@ const filterUnits = ({
         const open_hour_int = parseInt(open_hour.replace(/h.*/, ''), 10)
         const close_hour_int = parseInt(close_hour.replace('/h.*/', ''), 10)
 
-        if (start_hour_filter >= open_hour_int && hour <= close_hour_int) {
+        if (
+          hour >= start_hour_filter &&
+          hour <= end_hour_filter &&
+          hour >= open_hour_int &&
+          hour <= close_hour_int
+        ) {
           return true
         } else {
           item.opened = false

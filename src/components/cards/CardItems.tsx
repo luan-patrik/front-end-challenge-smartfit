@@ -35,8 +35,9 @@ const CardItems = ({
             <Image
               src={requiredSrc || ''}
               width={80}
-              height={0}
+              height={80}
               alt={requiredAlt || ''}
+              priority
             />
             <p>{labelRequired}</p>
           </div>
@@ -46,8 +47,9 @@ const CardItems = ({
             <Image
               src={recommendSrc || ''}
               width={80}
-              height={0}
+              height={80}
               alt={recommendAlt || ''}
+              priority
             />
             <p>{labelRecommended}</p>
           </div>
@@ -57,8 +59,9 @@ const CardItems = ({
             <Image
               src={forbiddenSrc || ''}
               width={80}
-              height={0}
+              height={80}
               alt={forbiddenAlt || ''}
+              priority
             />
             <p>{labelForbidden}</p>
           </div>
